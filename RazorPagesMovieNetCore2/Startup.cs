@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
+using RazorPagesMovieNetCore2.Models;
 
 namespace RazorPagesMovieNetCore2
 {
@@ -22,6 +24,9 @@ namespace RazorPagesMovieNetCore2
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
+            services.AddDbContext<MovieContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("MovieContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

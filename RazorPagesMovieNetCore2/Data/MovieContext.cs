@@ -9,6 +9,6 @@ namespace RazorPagesMovieNetCore2.Models
         {
         }
 
-        public DbSet<RazorPagesMovieNetCore2.Models.Movie> Movie { get; set; }
+        public DbSet<Movie> Movie { get; set; }
     }
 }
